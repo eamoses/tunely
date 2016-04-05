@@ -6,11 +6,47 @@
 }
 .jumbotron .container {
   height: 350px;
+  z-index: 0;
 }
-
 .inline-header {
   display: inline-block;
   vertical-align: baseline;
   margin-right: 12px;
 }
-
+.container.album{
+  width: 500%;
+}
+.adding{
+  color: black;
+  height: 40px;
+  background-color: lightgrey;
+}
+/*****HIDES CLOSE BUTTON FOR THE add album POPUP*****/
+.hidden {
+  visibility: hidden;
+}
+.close{
+  width: 75px;
+  color: black;
+}
+.row.formz{
+  width: 100%;
+}
+/*****POPUP PANEL STYLES*****/
+.popup{
+  font-family: Garamond;
+  position: absolute;
+  width: 50%;
+  height: 70%;
+  color:black;
+  background-color:rgba(255,255,255, 1);
+  border: 10px solid grey;
+  border-radius: 25px;
+  font-size: 26px;
+  z-index:1;
+  padding-top: 20px;
+}
+.form-control.input-md{
+  width: 200px;
+  height: 50px;
+}

@@ -8,7 +8,14 @@
 
 $(document).ready(function() {
   console.log('app.js loaded!');
-  //get function to get the albums and loop thru for each 
+  //***OBJECTIVE BUTTON FUNCTIONALITY***//
+    $(".adding").on("click", function(){
+      $("div.col-md-6.col-md-offset-3.popup.hidden").removeClass("hidden");//opens popup to explain objective
+    });
+    $(".close").on("click", function(){
+      $("div.col-md-6.col-md-offset-3.popup").addClass("hidden"); //makes popup go hidden again so you can play the game
+    });
+  //get function to get the albums and loop thru for each
   $.get('/api/albums').success(function (albums) {
     albums.forEach(function(album) {
       renderAlbum(album);
