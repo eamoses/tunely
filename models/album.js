@@ -1,7 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-//models/album.js
 var AlbumSchema = new Schema({
   artistName: String,
   name: String,
@@ -9,6 +8,6 @@ var AlbumSchema = new Schema({
   genres: [ String ]
 });
 
+//exporting the album schema to mongoose and index.js model
 var Album = mongoose.model('Album', AlbumSchema);
-
 module.exports = Album;

@@ -1,21 +1,20 @@
 /// SERVER-SIDE JAVASCRIPT
 
 //require express in our app
-var express = require('express');
+var express = require('express'),
+//require models
+    db = require('./models'),
+    //require body parser
+    bodyParser = require('body-parser');
 // generate a new express app and call it 'app'
 var app = express();
-//require models
-var db = require('./models');
-//require body parser
-var bodyParser = require('body-parser');
-
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended:true}));
 // We'll serve jQuery and bootstrap from a local bower cache avoiding CDNs
 // We're placing these under /vendor to differentiate them from our own assets
 app.use('/vendor', express.static(__dirname + '/bower_components'));
-
+//require the controllers folder since those have all of the functions
 var controllers = require('./controllers');
 
 /**********
@@ -26,7 +25,7 @@ var controllers = require('./controllers');
 /*
  * HTML Endpoints
  */
-
+//required get function
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
@@ -35,11 +34,11 @@ app.get('/', function homepage (req, res) {
 /*
  * JSON API Endpoints
  */
-
+//the index
 app.get('/api', controllers.api.index);
-
+//all of the albums
 app.get('/api/albums', controllers.albums.index);
-
+//posts and creates - saves data once its posted
 app.post('/api/albums', controllers.albums.create);
 
 /**********
