@@ -40,6 +40,8 @@ app.get('/api', controllers.api.index);
 app.get('/api/albums', controllers.albums.index);
 //posts and creates - saves data once its posted
 app.post('/api/albums', controllers.albums.create);
+//post and create songs
+app.post('/api/albums/:id', controllers.albums.create);
 
 /**********
  * SERVER *
