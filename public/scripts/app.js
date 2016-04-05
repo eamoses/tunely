@@ -15,6 +15,26 @@ $(document).ready(function() {
     $(".close").on("click", function(){
       $("div.col-md-6.col-md-offset-3.popup").addClass("hidden"); //makes popup go hidden again so you can play the game
     });
+
+    //MAKES NEW SONG BUTTON WORK
+    $('#albums').on('click', '.add-song', function(e) {
+    console.log('add-song clicked!');
+    var id= $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
+    console.log('id',id);
+    //modal function to make modal un hidden
+    $('#songModal').data('album-id', id);
+    $('#songModal').modal('toggle');
+
+    $('#saveSong').on('click', function(e){
+      e.preventDefault();
+      var dataSong = $('#modalFieldset').serializeArray();
+      console.log(dataSong);
+      $.post('/api/albums'+id, dataSong, function(album){
+        renderAlbum(album);
+      });
+      $(this).trigger("reset");
+    });
+    });
   //get function to get the albums and loop thru for each
   $.get('/api/albums').success(function (albums) {
     albums.forEach(function(album) {

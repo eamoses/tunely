@@ -40,7 +40,7 @@
                         <fieldset>
 
                           <!-- Form Name -->
-                          <legend>Add New Album</legend>
+                          <legend>Add New Albums</legend>
 
                           <!-- Text input-->
                           <div class="form-group">
@@ -111,8 +111,7 @@
     <script id="album-template" type="text/x-handlebars-template">
 
           <!-- one album -->
-          <div class="row album">
-
+          <div class="row album" data-album-id ={{album._id}}>
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
                 <div class="panel-body">
@@ -143,8 +142,9 @@
 
                         <li class="list-group-item">
                         <h4 class="inline-header">Songs:</h4>
-                        <span>    – (1) Swamped – (2) Heaven's a Lie – (3) Daylight Dancer – (4) Humane – (5) Self Deception – (6) Aeon – (7) Tight Rope – </span>
+                        {{#each songs}}<span><p> {{trackNumber}} {{name}} </p></span>{{/each}}
                         </li>
+
                       </ul>
                     </div>
 
@@ -152,6 +152,9 @@
                   <!-- end of album internal row -->
 
                   <div class='panel-footer'>
+                    <div class='panel-footer'>
+                      <button class='btn btn-primary add-song'>Add Song</button>
+                      </div>
                   </div>
 
                 </div>
@@ -167,16 +170,16 @@
     </section>
 
     <!-- begin songModal: this is not visible until you call .modal() on it -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="songModal">
+    <div class="modal fade" tabindex="-1" role="dialog" id="songModal" data-album-id = "#songModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button id="closeButton" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Create Song</h4>
           </div>
           <div class="modal-body">
 
-            <fieldset class='form-horizontal'>
+            <fieldset id="modalFieldset" class='form-horizontal'>
               <!-- Text input-->
               <div class="form-group">
                 <label class="col-md-4 control-label" for="songName">Song Name</label>
