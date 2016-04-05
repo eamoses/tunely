@@ -111,7 +111,7 @@
     <script id="album-template" type="text/x-handlebars-template">
 
           <!-- one album -->
-          <div class="row album" data-album-id ={{album._id}}>
+          <div class="row album" data-album-id = "{{_id}}">
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
                 <div class="panel-body">
@@ -170,7 +170,7 @@
     </section>
 
     <!-- begin songModal: this is not visible until you call .modal() on it -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="songModal" data-album-id = "album-id">
+    <div class="modal fade" tabindex="-1" role="dialog" id="songModal" data-album-id = "albumId">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -182,17 +182,17 @@
             <fieldset id="modalFieldset" class='form-horizontal'>
               <!-- Text input-->
               <div class="form-group">
-                <label class="col-md-4 control-label" for="songName">Song Name</label>
+                <label class="col-md-4 control-label" for="songName"></label>
                 <div class="col-md-4">
-                  <input id="songName" name="songName" type="text" placeholder="" class="form-control input-md" required="">
+                  <input id="songName" name="songName" type="text" placeholder="Song Name" class="form-control input-md" required="">
                 </div>
               </div>
 
               <!-- Text input-->
               <div class="form-group">
-                <label class="col-md-4 control-label" for="trackNumber">Track Number</label>
+                <label class="col-md-4 control-label" for="trackNumber"></label>
                 <div class="col-md-4">
-                  <input id="trackNumber" name="trackNumber" type="text" placeholder="" class="form-control input-md">
+                  <input id="trackNumber" name="trackNumber" type="text" placeholder="Track Number" class="form-control input-md">
                 </div>
               </div>
             </fieldset>

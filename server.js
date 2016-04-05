@@ -38,10 +38,12 @@ app.get('/', function homepage (req, res) {
 app.get('/api', controllers.api.index);
 //all of the albums
 app.get('/api/albums', controllers.albums.index);
+//show songs on page, finished the show function
+app.get('/api/albums/:albumId', controllers.albums.show);
 //posts and creates - saves data once its posted
 app.post('/api/albums', controllers.albums.create);
 //post and create songs
-app.post('/api/albums/:id', controllers.albums.create);
+app.post('/api/albums/:albumId/songs', controllers.albumsSongs.create);
 
 /**********
  * SERVER *

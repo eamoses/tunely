@@ -8,9 +8,7 @@
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/tunely_test");
 
-//importing album from the album model
 var Album = require('./album');
+
 module.exports.Album = Album;
-//importing song from song model
-var Song = require('./song');
-module.exports.Song = Song;
+module.exports.Song = require('./song');
